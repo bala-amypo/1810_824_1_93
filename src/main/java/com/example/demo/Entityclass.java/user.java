@@ -24,6 +24,30 @@ public class user{
     }
     public void setId(String name)
     {
-        this
+        this.name=name;
+    }
+    public String getId()
+    {
+        return email;
+    }
+    public void setId(String email)
+    {
+        this.email=email;
+    }
+    public String getId()
+    {
+        return password;
+    }
+    public void setId(String password)
+    {
+        this.password=password;
+    }
+    public String getId()
+    {
+        return role;
+    }
+    public void setId(String role)
+    {
+        this.role=role;
     }
 }
