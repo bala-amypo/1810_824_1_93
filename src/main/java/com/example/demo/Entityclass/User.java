@@ -57,7 +57,7 @@ public class User{
     {
         this.role=role;
     }
-}
+
 public User(Long id,String name,String email,String password,String role)
 {
     this.id=id;
@@ -70,4 +70,5 @@ public User(Long id,String name,String email,String password,String role)
 public User()
 {
     
+}
 }
