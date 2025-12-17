@@ -2,17 +2,17 @@ package com.example.demo.Entityclass;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.column;
+import jakarta.persistence.Column;
 
 @Entity
 public class user{
     @Id
     private Long id;
-    String name;
+    private String name;
     @column(unique=true)
-    String email;
-    String password;
-    String role;
+    private String email;
+    private String password;
+    private String role;
     
     public Long getId()
     {
