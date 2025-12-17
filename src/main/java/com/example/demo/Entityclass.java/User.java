@@ -7,12 +7,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 
 @Entity
-public class user{
+public class User{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @column(unique=true)
+    @Column(unique=true)
     private String email;
     private String password;
     private String role;
@@ -25,35 +25,35 @@ public class user{
     {
         this.id=id;
     }
-    public String getId()
+    public String getname()
     {
         return name;
     }
-    public void setId(String name)
+    public void setname(String name)
     {
         this.name=name;
     }
-    public String getId()
+    public String getemail()
     {
         return email;
     }
-    public void setId(String email)
+    public void setemail(String email)
     {
         this.email=email;
     }
-    public String getId()
+    public String getpassword()
     {
         return password;
     }
-    public void setId(String password)
+    public void setpassword(String password)
     {
         this.password=password;
     }
-    public String getId()
+    public String getrole()
     {
         return role;
     }
-    public void setId(String role)
+    public void setrole(String role)
     {
         this.role=role;
     }
