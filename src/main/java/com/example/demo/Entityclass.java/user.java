@@ -1,5 +1,7 @@
 package com.example.demo.Entityclass;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
@@ -7,6 +9,7 @@ import jakarta.persistence.Column;
 @Entity
 public class user{
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String name;
     @column(unique=true)
