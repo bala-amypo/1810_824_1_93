@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.Entityclass.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
-import uti
+import java.util.List;
 
 
 @Service
