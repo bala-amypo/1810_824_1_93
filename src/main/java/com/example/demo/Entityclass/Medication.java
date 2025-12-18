@@ -38,6 +38,10 @@ public class Medication
     this.ingredients=ingredients;
 
    }
+   public Medication()
+   {
+    
+   }
 
 
 }
