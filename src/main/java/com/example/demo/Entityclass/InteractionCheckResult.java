@@ -22,6 +22,18 @@ public class InteractionCheckResult
    {
     return medications;
    }
-   p
+   public void setMedications(String medications)
+   {
+    this.medications=medications;
+   }
+   public LocalDateTime getCheckedAt()
+   {
+    return checkedAt;
+   }
+   public void setCheckedAt(LocalDateTime checkedAt)
+   {
+    this.checkedAt=checkedAt;
+   }
+   public InteractionCheckResult
 
 }
