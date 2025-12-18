@@ -1,5 +1,12 @@
 package com.example.demo.Entityclass;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+
+@Entity
 public class Medication
 {
     @Id;
@@ -40,7 +47,7 @@ public class Medication
    }
    public Medication()
    {
-    
+
    }
 
 
