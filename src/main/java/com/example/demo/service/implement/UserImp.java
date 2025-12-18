@@ -16,7 +16,7 @@ public class UserImp implements UserService{
     {
         return user.save(rule);
     }
-    public List<User> getAllRules()
+    public List<User>getAllRules()
     {
         return user.findAll();
     }
