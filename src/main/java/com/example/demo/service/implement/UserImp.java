@@ -1,5 +1,7 @@
 package com.example.demo.service.implement;
 
+
+
 @Service
 public class UserImp implements UserService{
 
@@ -9,5 +11,8 @@ public class UserImp implements UserService{
     {
         return user.save(rule);
     }
-    public List<User> getAllRules
+    public List<User> getAllRules()
+    {
+        return user.findAll();
+    }
 } 
