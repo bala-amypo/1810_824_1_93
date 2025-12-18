@@ -8,6 +8,7 @@ public class InteractionCheckResult
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String medications;
+    private String interactions;
     private LocalDateTime checkedAt;
 
    public Long getId()
@@ -26,6 +27,14 @@ public class InteractionCheckResult
    {
     this.medications=medications;
    }
+   public String getInteractions()
+   {
+    return interactions;
+   }
+   public void setInteractions(String interactions)
+   {
+    this.interactions=interactions;
+   }
    public LocalDateTime getCheckedAt()
    {
     return checkedAt;
@@ -34,6 +43,17 @@ public class InteractionCheckResult
    {
     this.checkedAt=checkedAt;
    }
-   public InteractionCheckResult
+   public InteractionCheckResult(Long id,String medications,String interactions)
+   {
 
+     this.id=id;
+     this.medications=medications;
+     this.interactions=interactions;
+     this.checkedAt=checkedAt;
+   }
+
+public InteractionCheckResult()
+{
+    
+}
 }
