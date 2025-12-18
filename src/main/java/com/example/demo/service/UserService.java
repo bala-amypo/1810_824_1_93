@@ -4,6 +4,6 @@ import com.example.demo.Entityclass.User;
 import java.util.List;
 
 public interface UserService{
-    User addRule(User rule)
+    User addRule(User rule);
     List<User>getAllRules();
 }
