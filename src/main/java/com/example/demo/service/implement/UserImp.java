@@ -4,9 +4,10 @@ package com.example.demo.service.implement;
 public class UserImp implements UserService{
 
     @Autowired
-    User
+    UserRepository user;;
     public User addRule(User rule)
     {
-        return 
+        return user.save(rule);
     }
+    public List<User> getAllRules
 } 
