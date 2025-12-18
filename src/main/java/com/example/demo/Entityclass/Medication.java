@@ -28,9 +28,15 @@ public class Medication
    {
     return ingredients;
    }
-   public void set(String name)
+   public void setIngredients(String ingredients)
    {
     this.ingredients=ingredients;
+   }
+   public Medication(Long id,String name,String ingredients){
+    this.id=id;
+    this.name=name;
+    this.ingredients=ingredients;
+
    }
 
 
