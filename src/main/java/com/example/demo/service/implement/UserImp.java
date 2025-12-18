@@ -1,3 +1,12 @@
 package com.example.demo.service.implement;
 
-public UserImp 
+@Service
+public class UserImp implements UserService{
+
+    @Autowired
+    
+    public User addRule(User rule)
+    {
+        return 
+    }
+} 
