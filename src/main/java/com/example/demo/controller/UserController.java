@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.example.demo.Entityclass.User;
-import com
+import com.example.demo.service.UserService;
+import java.util.List;
 
 
 @RestController
