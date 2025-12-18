@@ -1,5 +1,10 @@
 package com.example.demo.Entityclass;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 public class InteractionRule{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
