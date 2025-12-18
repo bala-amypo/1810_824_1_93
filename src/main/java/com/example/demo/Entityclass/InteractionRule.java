@@ -21,15 +21,31 @@ public class InteractionRule{
    {
     return ingredientA;
    }
-   public void setName(String ingredientA)
+   public void setIngredientB(String ingredientA)
    {
     this.ingredientA=ingredientA;
+   }
+   public String getIngredientB()
+   {
+    return ingredientB;
+   }
+   public void setIngredientB(String ingredientB)
+   {
+    this.ingredientB=ingredientB;
+   }
+   public String getSeverity()
+   {
+    return severity;
+   }
+   public void setSeverity(String severity)
+   {
+    this.severity=severity;
    }
    public String getName()
    {
     return name;
    }
-   public void setName(String name)
+   public void setDescription(String name)
    {
     this.name=name;
    }
