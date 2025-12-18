@@ -26,7 +26,7 @@ public class InteractionRule{
    {
     return ingredientA;
    }
-   public void setIngredientB(String ingredientA)
+   public void setIngredientA(String ingredientA)
    {
     this.ingredientA=ingredientA;
    }
