@@ -22,7 +22,7 @@ public class UserController{
     @GetMapping
     public List<User> getrules()
     {
-        return crs.getAllRules;
+        return crs.getAllRules();
     }
 
 }
