@@ -1,7 +1,7 @@
 package com.example.demo.Entityclass;
 
 
-public class InteractionCheckResult()
+public class InteractionCheckResult
 {
     
 }

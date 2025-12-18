@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
-public class ActiveIngredient()
+public class ActiveIngredient
 {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,9 +27,9 @@ public class ActiveIngredient()
     return name;
    }
    public void setName(String name)
-   [
+   {
     this.name=name;
-   ]
+   }
    public ActiveIngredient(Long id,String name)
    {
     this.id=id;
