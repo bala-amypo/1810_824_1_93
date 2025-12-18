@@ -41,13 +41,25 @@ public class InteractionRule{
    {
     this.severity=severity;
    }
-   public String getName()
+   public String getDesccription()
    {
-    return name;
+    return description;
    }
-   public void setDescription(String name)
+   public void setDescription(String description)
    {
-    this.name=name;
+    this.description=description;
+   }
+   public InteractionRule(Long id,String ingredientA,String ingredientB,String severity,String description )
+   {
+    this.id=id;
+    this.ingredientA=ingredientA;
+    this.ingredientB=ingredientB;
+    this.severity=severity;
+    this.description=description;
+   }
+   public InteractionRule()
+   {
+    
    }
     
 }
