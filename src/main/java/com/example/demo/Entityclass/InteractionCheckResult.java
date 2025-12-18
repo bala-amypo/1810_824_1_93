@@ -1,5 +1,9 @@
 package com.example.demo.Entityclass;
 
+import jakarta.persistence.Id;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.GeneratedValue;
+
 
 public class InteractionCheckResult
 {
@@ -54,6 +58,6 @@ public class InteractionCheckResult
 
 public InteractionCheckResult()
 {
-    
+
 }
 }
