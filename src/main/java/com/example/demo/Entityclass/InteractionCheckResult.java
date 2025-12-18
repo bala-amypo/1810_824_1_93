@@ -4,7 +4,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
 
+@Entity
 public class InteractionCheckResult
 {
 
