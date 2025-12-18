@@ -1,3 +1,9 @@
 package com.example.demo.repository;
 
-public interface InteractionCheckResult extends
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.Entityclass.InteractionCheckResult;
+
+public interface InteractionCheckResultRepository extends JpaRepository<InteractionCheckResult,Long>()
+{
+
+}
