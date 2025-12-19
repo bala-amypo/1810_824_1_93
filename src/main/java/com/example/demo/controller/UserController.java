@@ -19,8 +19,8 @@ public class UserController{
     {
         return crs.addRule(rule);
     }
-    @GetMapping
-    public User findemail(String email)
+    @GetMapping("{email}")
+    public User findemail(@PathVarialbString email)
     {
         return crs.findByEmail(email);
     }
