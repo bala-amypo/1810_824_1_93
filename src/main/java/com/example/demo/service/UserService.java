@@ -5,5 +5,5 @@ import com.example.demo.Entityclass.User;
 
 public interface UserService{
     User addRule(User rule);
-    User getByEmail();
+    User findByEmail(String email);
 }

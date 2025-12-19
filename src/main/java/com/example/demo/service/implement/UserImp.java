@@ -17,7 +17,7 @@ public class UserImp implements UserService{
     {
         return user.save(rule);
     }
-    public  User getByEmail()
+    public  User findByEmail()
     {
     
     } 
