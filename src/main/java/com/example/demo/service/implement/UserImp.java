@@ -20,10 +20,10 @@ public class UserImp implements UserService{
         return user.save(rule);
     }
     @Override
-    public  User findByEmail(String e)
+    public  User findByEmail(String email)
     {
     // Optional<User>rule=user.findByEmail(email);
-    return rule.orElse(null);
+    return user..orElse(null);
       
     } 
 } 
