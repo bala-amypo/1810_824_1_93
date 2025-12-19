@@ -20,9 +20,9 @@ public class UserController{
         return crs.addRule(rule);
     }
     @GetMapping
-    public List<User> getrules()
+    public User findemail(String email)
     {
-        return crs.getAllRules();
+        return crs.findByEmail(email);
     }
 
 }
