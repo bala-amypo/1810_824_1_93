@@ -12,13 +12,15 @@ import java.util.List;
 public class UserImp implements UserService{
 
     @Autowired
-    UserRepository user;;
+    UserRepository user;
+    @Override
     public User addRule(User rule)
     {
         return user.save(rule);
     }
+    @Override
     public  User findByEmail()
     {
-    
+    Optional<User>user=user
     } 
 } 
