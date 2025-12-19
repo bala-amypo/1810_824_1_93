@@ -21,6 +21,8 @@ public class UserImp implements UserService{
     @Override
     public  User findByEmail()
     {
-    Optional<User>user=user
+    Optional<User>rule=user.findByEmail(email);
+    return.user.orElse(null);
+      
     } 
 } 
