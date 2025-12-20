@@ -22,7 +22,7 @@ public class UserImp implements UserService{
     @Override
     public  User findByEmails(String email)
     {
-    // Optional<User>rule=user.findByEmail(email);
+    
     return user.findByEmail(email);
       
     } 
