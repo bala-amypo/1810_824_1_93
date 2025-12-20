@@ -20,10 +20,10 @@ public class UserController{
     {
         return crs.addRule(rule);
     }
-    @GetMapping("/user/{id}")
-public User getUser(@PathVariable Long id) {
-    return userService.getUserById(id).orElse(null);
-}
-
+    @GetMapping("/{email}")
+    public User findemail(@PathVariable String email)
+    {
+        return crs.findByEmails(email).orElse(null);
+    }
 
 }
