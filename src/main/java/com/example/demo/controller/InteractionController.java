@@ -1,6 +1,6 @@
 package com.example.demo.conntroller;
 
-import com.examle.demo.Entityclass.InteractionCheckResult;
+import com.example.demo.Entityclass.InteractionCheckResult;
 import com.example.demo.service.InteractionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
