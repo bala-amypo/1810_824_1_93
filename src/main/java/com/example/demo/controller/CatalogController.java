@@ -11,6 +11,7 @@ import com.example.demo.Entityclass.ActiveIngredient;
 import com.example.demo.Entityclass.Medication;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 @RestController
 public class  CatalogController
 {
@@ -20,8 +21,13 @@ CatalogService cata;
 @PostMapping("/active")
 public ActiveIngredient ingredient(@RequestBody ActiveIngredient ingredient)
 {
-    return.addIngredient(ingredient);
+    return cata.addIngredient(ingredient);
 }
-@PostMapping()
+@PostMapping("/medi")
+public Medication medication(@RequestBody Medication medication)
+{
+    return cata.addMedication(medication);
+}
+public 
 
 } 
