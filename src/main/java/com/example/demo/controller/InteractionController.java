@@ -14,7 +14,7 @@ public class InteractionController{
 @Autowired
 InteractionService inter;
 @PostMapping("/hello")
-public  InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds)
+public  InteractionCheckResult checkInteractions(@RequestBody InteractionCheckResult medicationIds)
 {
     return inter.checkInteractions();
 }
