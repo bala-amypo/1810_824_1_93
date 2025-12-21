@@ -23,7 +23,7 @@ public class UserController{
     @GetMapping("/{email}")
     public User findemail(@PathVariable String email)
     {
-        return crs.findByEmails(email).orElse(null);
+        return crs.findByEmails(email);
     }
 
 }

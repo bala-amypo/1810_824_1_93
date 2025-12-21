@@ -23,7 +23,7 @@ public class UserImp implements UserService{
     public  User findByEmails(String email)
     {
     
-    return user.findByEmails(email);
+    return user.findByEmails(email).orElse(null);
       
     } 
 } 
