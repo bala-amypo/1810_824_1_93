@@ -6,6 +6,7 @@ import com.example.demo.Entityclass.InteractionRule;
 import com.example.demo.repository.InteractionRuleRepository;
 import com.example.demo.service.RuleService;
 import com.example.demo.Entityclass.InteractionRule;
+import java.uti.List;
 
 @Service
 public class RuleImp implements RuleService{
