@@ -13,6 +13,12 @@ public class InteractionController{
 
 @Autowired
 InteractionService inter;
-public InteractionCheckResult
+@PostMapping("/hello")
+public  InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds)
+{
+    return inter.checkInteractions;
+}
+@GetMapping("///")
+public InteractionCheckResult 
 
 }
