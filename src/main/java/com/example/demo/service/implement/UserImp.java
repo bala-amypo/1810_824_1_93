@@ -20,10 +20,10 @@ public class UserImp implements UserService{
         return user.save(rule);
     }
     
-    public  User findByEmails(String email)
+    public  User findByEmail(String email)
     {
     
-    return user.findByEmails(email).orElse(null);
+    return user.findByEmail(email).orElse(null);
       
     } 
 } 
