@@ -1,6 +1,10 @@
 package com.example.demo.service.implement;
 
-import 
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.Entityclass.InteractionRule;
+import com.example.demo.repository.InteractionRuleRepository;
+import com.example.demo.service.RuleService;
 
 @Service
 public class RuleImp implements RuleService{
