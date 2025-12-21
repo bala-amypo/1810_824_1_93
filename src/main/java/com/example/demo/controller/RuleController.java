@@ -7,9 +7,11 @@ public class RuleController{
 RuleService run;
 
 @PostMapping("/inter")
-public InteractionRule addRule(Interaction Rule)
+public InteractionRule addRule(InteractionRule rule)
 {
-    return run.
+    return run.addRule(rule);
 }
+@GetMapping("/")
+public List
 
 }
