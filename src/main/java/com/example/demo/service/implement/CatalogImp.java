@@ -17,6 +17,13 @@ public CatalogImp extends CatalogService{
  @Autowired
  ActiveIngredienteRepository acti;
 
- 
+ public ActiveIngredient addIngredient(ActiveIngredient ingredient)
+ {
+    return acti.save(ingredient);
+ }
+ public Medication addMedication(Medication medication)
+ {
+    return medi.save(medication);
+ }
 
 }
