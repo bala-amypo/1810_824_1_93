@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.Entityclass;
+import com.example.demo.Entityclass.InteractionCheckResult;
 
 
 public interface InteractionService{
