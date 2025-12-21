@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.example.demo.service.RuleService;
 import com.example.demo.Entityclass.InteractionRule;
+import java.util.List;
 
 @RestController
 public class RuleController{
