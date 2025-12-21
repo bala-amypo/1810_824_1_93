@@ -14,14 +14,14 @@ public class InteractionController{
 @Autowired
 InteractionService inter;
 @PostMapping("/hello")
-public  InteractionCheckResult checkInteractions(@RequestBody InteractionCheckResult medicationIds)
+public  InteractionCheckResult CheckInteractions(@RequestBody InteractionCheckResult medicationIds)
 {
-    return inter.checkInteractions();
+    return inter.checkInteractions(medicationIds);
 }
 @GetMapping("///")
 public InteractionCheckResult getResult(Long resultId)
 {
-    return inter.getResult();
+    return inter.getResult(resultId);
 }
 
 }
