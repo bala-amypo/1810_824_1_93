@@ -25,5 +25,8 @@ public CatalogImp extends CatalogService{
  {
     return medi.save(medication);
  }
+ public List<Medication> getAllMedications(){
+    return medi.findAll();
+ }
 
 }
