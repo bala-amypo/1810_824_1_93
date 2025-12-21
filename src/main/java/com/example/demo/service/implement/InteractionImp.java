@@ -17,7 +17,7 @@ InteractionCheckResultRepository rep;
   }
   public InteractionCheckResult getResult(Long resultId)
   {
-    
+        return rep.findById(resultId);
   }
 
 }
