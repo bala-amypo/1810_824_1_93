@@ -1,4 +1,4 @@
-package com.example.demo.conntroller;
+package com.example.demo.controller;
 
 import com.example.demo.Entityclass.InteractionCheckResult;
 import com.example.demo.service.InteractionService;
@@ -18,7 +18,7 @@ public  InteractionCheckResult CheckInteractions(@RequestBody InteractionCheckRe
 {
     return inter.checkInteractions(medicationIds);
 }
-@GetMapping("///")
+@GetMapping("/")
 public InteractionCheckResult getResult(Long resultId)
 {
     return inter.getResult(resultId);
