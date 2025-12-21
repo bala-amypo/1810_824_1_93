@@ -7,6 +7,7 @@ import com.example.demo.Entityclass.ActiveIngredient;
 import com.example.demo.service.CatalogService;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 
 @Service
@@ -14,8 +15,9 @@ public class CatalogImp implements CatalogService{
 
  @Autowired
  MedicationRepository medi;
+
  @Autowired
- ActiveIngredienteRepository acti;
+ ActiveIngredientRepository acti;
 
  public ActiveIngredient addIngredient(ActiveIngredient ingredient)
  {
