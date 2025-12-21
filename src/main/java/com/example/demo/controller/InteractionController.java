@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.util.List;
 
 @RestController
 public class InteractionController{
@@ -14,7 +15,7 @@ public class InteractionController{
 @Autowired
 InteractionService inter;
 @PostMapping("/hello")
-public  InteractionCheckResult CheckInteractions(@RequestBody InteractionCheckResult medicationIds)
+public  List<InteractionCheckResult> CheckInteractions(@RequestBody InteractionCheckResult medicationIds)
 {
     return inter.checkInteractions(medicationIds);
 }

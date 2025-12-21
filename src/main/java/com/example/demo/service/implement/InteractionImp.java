@@ -5,13 +5,14 @@ import com.example.demo.repository.InteractionCheckResultRepository;
 import com.example.demo.service.InteractionService;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 @Service
 public class InteractionImp implements InteractionService{
 
 @Autowired
 InteractionCheckResultRepository rep;
-  public InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds )
+  public List<InteractionCheckResult> checkInteractions(InteractionCheckResult medicationIds )
   {
   return rep.save(medicationIds);
   }
