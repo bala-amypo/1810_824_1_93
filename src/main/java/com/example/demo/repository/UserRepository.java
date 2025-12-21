@@ -5,6 +5,5 @@ import com.example.demo.Entityclass.User;
 import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User,Long>{
-
-Optional<User> findByEmails(String email);
+    Optional<User> findByEmail(String email);
 }
