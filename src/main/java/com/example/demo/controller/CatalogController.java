@@ -18,6 +18,10 @@ public class  CatalogController
 @Autowired
 CatalogService cata;
 @PostMapping("/active")
-public 
+public ActiveIngredient ingredient(@RequestBody ActiveIngredient ingredient)
+{
+    return.addIngredient(ingredient);
+}
+@PostMapping()
 
 } 
