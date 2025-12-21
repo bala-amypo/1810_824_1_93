@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.InteractionRule;
+import com.example.demo.Entityclass.InteractionRule;
 import java.util.List;
 
 public interface RuleService{
