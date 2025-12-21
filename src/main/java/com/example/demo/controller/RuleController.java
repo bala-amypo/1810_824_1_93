@@ -20,7 +20,7 @@ public InteractionRule addRule(@RequestBody InteractionRule rule)
 {
     return run.addRule(rule);
 }
-@GetMapping("/")
+@GetMapping("/t")
 public List<InteractionRule>getAllRules()
 {
     return  run.getAllRules();
