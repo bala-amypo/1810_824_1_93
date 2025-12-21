@@ -5,5 +5,6 @@ import com.example.demo.Entityclass;
 
 public interface InteractionService{
 
-    
+    InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds);
+    InteractionCheckResult getResult(Long resultId);
 }
