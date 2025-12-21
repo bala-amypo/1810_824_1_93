@@ -14,12 +14,12 @@ public class UserImp implements UserService{
 
     @Autowired
     UserRepository user;
-    @Override
+    
     public User addRule(User rule)
     {
         return user.save(rule);
     }
-    @Override
+    
     public  User findByEmails(String email)
     {
     
