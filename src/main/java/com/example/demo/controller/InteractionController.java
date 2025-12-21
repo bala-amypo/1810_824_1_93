@@ -16,9 +16,12 @@ InteractionService inter;
 @PostMapping("/hello")
 public  InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds)
 {
-    return inter.checkInteractions;
+    return inter.checkInteractions();
 }
 @GetMapping("///")
-public InteractionCheckResult 
+public InteractionCheckResult getResult(Long resultId)
+{
+    return inter.getResult();
+}
 
 }
