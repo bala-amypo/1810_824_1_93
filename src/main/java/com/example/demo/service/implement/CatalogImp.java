@@ -13,9 +13,7 @@ import java.util.List;
 @Service
 public class CatalogImp implements CatalogService{
 
- @Autowired
- MedicationRepository medi;
-
+ 
  @Autowired
  ActiveIngredientRepository acti;
 
@@ -23,6 +21,9 @@ public class CatalogImp implements CatalogService{
  {
     return acti.save(ingredient);
  }
+ @Autowired
+ MedicationRepository medi;
+ 
  public Medication addMedication(Medication medication)
  {
     return medi.save(medication);
