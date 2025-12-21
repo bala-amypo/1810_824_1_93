@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
 import com.example.demo.InteractionRule;
+import java.util.List;
 
 public interface RuleService{
-    InteractionRule add
+    InteractionRule addRule(InteractionRule rule);
+    List<InteractionRule>getAllRules;
 }
