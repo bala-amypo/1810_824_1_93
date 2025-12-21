@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
 import com.example.demo.Entityclass.Medication;
+import com.example.demo.Entityclass.ActiveIngredient;
 import java.util.List;
 
 public interface CatalogService {
        
-       Active
+       ActiveIngredient addIngredient(ActiveIngredient ingredient);
+       Medication 
        
 }
