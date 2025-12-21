@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 @Service
-public CatalogImp extends CatalogService{
+public class CatalogImp implements CatalogService{
 
  @Autowired
  MedicationRepository medi;
