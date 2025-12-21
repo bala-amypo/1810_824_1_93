@@ -1,3 +1,10 @@
 package com.example.demo.service.implement;
 
-public class implem
+@Service
+public class RuleImp implements RuleService{
+
+@Autowired
+InteractionRuleRepository rep;
+
+public InteractionRule addRule()
+}
