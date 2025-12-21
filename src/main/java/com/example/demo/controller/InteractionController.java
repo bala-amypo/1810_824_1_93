@@ -18,7 +18,7 @@ public  InteractionCheckResult CheckInteractions(@RequestBody InteractionCheckRe
 {
     return inter.checkInteractions(medicationIds);
 }
-@GetMapping("/")
+@GetMapping("////jhfk")
 public InteractionCheckResult getResult(Long resultId)
 {
     return inter.getResult(resultId);
