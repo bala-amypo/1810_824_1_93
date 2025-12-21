@@ -5,11 +5,13 @@ import com.example.demo.repository.MedicationRepository;
 import com.example.demo.Entityclass.Medication;
 import com.example.demo.Entityclass.ActiveIngredient;
 import com.example.demo.service.CatalogService;
-import 
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.
+
 
 @Service
 public CatalogImp extends CatalogService{
 
-
+ 
 
 }
