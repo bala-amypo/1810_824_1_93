@@ -28,6 +28,7 @@ public Medication medication(@RequestBody Medication medication)
 {
     return cata.addMedication(medication);
 }
-public 
+@GetMapping("/")
+public List<M
 
 } 
