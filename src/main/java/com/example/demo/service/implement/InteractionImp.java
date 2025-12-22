@@ -12,10 +12,11 @@ public class InteractionImp implements InteractionService{
 
 @Autowired
 InteractionCheckResultRepository rep;
-  public List<InteractionCheckResult> checkInteractions(InteractionCheckResult medicationIds )
-  {
-  return rep.save(medicationIds);
-  }
+ public InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds)
+{
+    return rep.save(medicationIds);
+}
+
   public InteractionCheckResult getResult(Long resultId)
   {
         return rep.findById(resultId).orElse(null);

@@ -15,10 +15,11 @@ public class InteractionController{
 @Autowired
 InteractionService inter;
 @PostMapping("/hello")
-public  List<InteractionCheckResult> CheckInteractions(@RequestBody InteractionCheckResult medicationIds)
+public InteractionCheckResult checkInteractions(@RequestBody InteractionCheckResult medicationIds)
 {
     return inter.checkInteractions(medicationIds);
 }
+
 @GetMapping("////jhfk")
 public InteractionCheckResult getResult(Long resultId)
 {
