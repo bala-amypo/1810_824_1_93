@@ -1,54 +1,61 @@
 package com.example.demo.Entityclass;
 
-import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import java.util.Set;
 
 @Entity
-public class Medication
-{
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-    private String name;
-    private String ingredients;
+public class Medication {
 
-    public Long getId()
-    {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @ManyToMany
+    @JoinTable(
+        name = "medication_ingredient",
+        joinColumns = @JoinColumn(name = "medication_id"),
+        inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private Set<ActiveIngredient> ingredients;
+
+    public Medication() {
+    }
+
+    public Medication(Long id, String name, Set<ActiveIngredient> ingredients) {
+        this.id = id;
+        this.name = name;
+        this.ingredients = ingredients;
+    }
+
+    public Long getId() {
         return id;
     }
-    public void setId(Long id)
-    {
-        this.id=id;
+
+    public void setId(Long id) {
+        this.id = id;
     }
-    public String getName()
-   {
+
+    public String getName() {
         return name;
-   }
-    public void setName(String name)
-   {
-        this.name=name;
-   }
-    public String getIngredients()
-   {
-    return ingredients;
-   }
-   public void setIngredients(String ingredients)
-   {
-    this.ingredients=ingredients;
-   }
-   public Medication(Long id,String name,String ingredients){
-    this.id=id;
-    this.name=name;
-    this.ingredients=ingredients;
+    }
 
-   }
-   public Medication()
-   {
+    public void setName(String name) {
+        this.name = name;
+    }
 
-   }
+    public Set<ActiveIngredient> getIngredients() {
+        return ingredients;
+    }
 
-
+    public void setIngredients(Set<ActiveIngredient> ingredients) {
+        this.ingredients = ingredients;
+    }
 }
