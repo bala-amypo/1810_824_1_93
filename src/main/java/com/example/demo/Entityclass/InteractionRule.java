@@ -4,72 +4,78 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
-public class InteractionRule{
+public class InteractionRule {
+
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne;
-    @JoinColumn("ingredient_id");
+
+    @ManyToOne
+    @JoinColumn(name = "ingredient_a_id", nullable = false)
     private ActiveIngredient ingredientA;
-    @ManyToOne;
-    @JoinColumn("ingredient_id1");
+
+    @ManyToOne
+    @JoinColumn(name = "ingredient_b_id", nullable = false)
     private ActiveIngredient ingredientB;
-    private String severity;
+
+    private String severity;  
     private String description;
-    
-   public Long getId()
-   {
-    return id;
-   }
-   public void  setId(Long id)
-   {
-    this.id=id;
-   }
-   public ActiveIngredient getIngredientA()
-   {
-    return ingredientA;
-   }
-   public void setIngredientA(ActiveIngredient ingredientA)
-   {
-    this.ingredientA=ingredientA;
-   }
-   public ActiveIngredient getIngredientB()
-   {
-    return ingredientB;
-   }
-   public void setIngredientB(ActiveIngredient ingredientB)
-   {
-    this.ingredientB=ingredientB;
-   }
-   public String getSeverity()
-   {
-    return severity;
-   }
-   public void setSeverity(String severity)
-   {
-    this.severity=severity;
-   }
-   public String getDesccription()
-   {
-    return description;
-   }
-   public void setDescription(String description)
-   {
-    this.description=description;
-   }
-   public InteractionRule(Long id,ActiveIngredient ingredientA,ActiveIngredient ingredientB,String severity,String description )
-   {
-    this.id=id;
-    this.ingredientA=ingredientA;
-    this.ingredientB=ingredientB;
-    this.severity=severity;
-    this.description=description;
-   }
-   public InteractionRule()
-   {
-    
-   }
-    
+    public InteractionRule() {
+    }
+    public InteractionRule(Long id,
+                           ActiveIngredient ingredientA,
+                           ActiveIngredient ingredientB,
+                           String severity,
+                           String description) {
+        this.id = id;
+        this.ingredientA = ingredientA;
+        this.ingredientB = ingredientB;
+        this.severity = severity;
+        this.description = description;
+    }
+
+   
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public ActiveIngredient getIngredientA() {
+        return ingredientA;
+    }
+
+    public void setIngredientA(ActiveIngredient ingredientA) {
+        this.ingredientA = ingredientA;
+    }
+
+    public ActiveIngredient getIngredientB() {
+        return ingredientB;
+    }
+
+    public void setIngredientB(ActiveIngredient ingredientB) {
+        this.ingredientB = ingredientB;
+    }
+
+    public String getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
