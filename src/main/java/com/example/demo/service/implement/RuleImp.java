@@ -1,10 +1,10 @@
 package com.example.demo.service.implement;
 
-import org.springframework.stereotype.Service;
 import com.example.demo.Entityclass.InteractionRule;
 import com.example.demo.repository.InteractionRuleRepository;
 import com.example.demo.service.RuleService;
 
+import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
@@ -12,6 +12,7 @@ public class RuleImp implements RuleService {
 
     private final InteractionRuleRepository rep;
 
+    
     public RuleImp(InteractionRuleRepository rep) {
         this.rep = rep;
     }
@@ -19,32 +20,23 @@ public class RuleImp implements RuleService {
     @Override
     public InteractionRule addRule(InteractionRule rule) {
 
+        Long idA = rule.getIngredientA().getId();
+        Long idB = rule.getIngredientB().getId();
+
         
-        Long aId = rule.getIngredientA().getId();
-        Long bId = rule.getIngredientB().getId();
-
-        if (aId > bId) {
-            var temp = rule.getIngredientA();
-            rule.setIngredientA(rule.getIngredientB());
-            rule.setIngredientB(temp);
-        }
-
-       
-        if (rep.existsByIngredientAAndIngredientB(
-                rule.getIngredientA(),
-                rule.getIngredientB())) {
+        if (rep.findRuleBetweenIngredients(idA, idB).isPresent()) {
             throw new IllegalArgumentException(
-                "Interaction rule already exists"
+                "Interaction rule already exists for these ingredients"
             );
         }
 
-      
+        
         String severity = rule.getSeverity();
         if (!severity.equals("MINOR") &&
             !severity.equals("MODERATE") &&
             !severity.equals("MAJOR")) {
             throw new IllegalArgumentException(
-                "Invalid severity value"
+                "Severity must be MINOR, MODERATE, or MAJOR"
             );
         }
 

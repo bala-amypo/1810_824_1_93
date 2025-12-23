@@ -12,19 +12,19 @@ public interface InteractionRuleRepository
         extends JpaRepository<InteractionRule, Long> {
 
     
-    @Query("""
-        SELECT r FROM InteractionRule r
-        WHERE r.ingredientA.id = :ingredientId
-           OR r.ingredientB.id = :ingredientId
-    """)
-    List<InteractionRule> findByIngredientId(@Param("ingredientId") Long ingredientId);
+    @Query("SELECT r FROM InteractionRule r " +
+           "WHERE r.ingredientA.id = :ingredientId " +
+           "OR r.ingredientB.id = :ingredientId")
+    List<InteractionRule> findByIngredientId(
+            @Param("ingredientId") Long ingredientId
+    );
 
-
-    @Query("""
-        SELECT r FROM InteractionRule r
-        WHERE (r.ingredientA.id = :id1 AND r.ingredientB.id = :id2)
-           OR (r.ingredientA.id = :id2 AND r.ingredientB.id = :id1)
-    """)
+    
+    @Query("SELECT r FROM InteractionRule r " +
+           "WHERE (r.ingredientA.id = :id1 AND r.ingredientB.id = :id2) " +
+           "OR (r.ingredientA.id = :id2 AND r.ingredientB.id = :id1)")
     Optional<InteractionRule> findRuleBetweenIngredients(
             @Param("id1") Long id1,
             @Param("id2") Long id2
+    );
+}
