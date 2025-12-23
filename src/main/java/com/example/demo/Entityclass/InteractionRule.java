@@ -10,9 +10,12 @@ public class InteractionRule{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne;
     @JoinColumn("ingredient_id");
-    private String ingredientA;
-    private String ingredientB;
+    private ActiveIngredient ingredientA;
+    @ManyToOne;
+    @JoinColumn("ingredient_id1");
+    private ActiveIngredient ingredientB;
     private String severity;
     private String description;
     
@@ -24,11 +27,11 @@ public class InteractionRule{
    {
     this.id=id;
    }
-   public String getIngredientA()
+   public ActiveIngredient getIngredientA()
    {
     return ingredientA;
    }
-   public void setIngredientA(String ingredientA)
+   public ActiveIngredient setIngredientA(String ingredientA)
    {
     this.ingredientA=ingredientA;
    }
