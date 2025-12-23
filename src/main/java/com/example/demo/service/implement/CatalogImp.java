@@ -12,22 +12,22 @@ import java.util.List;
 
 @Service
 public class CatalogImp implements CatalogService{
-
- 
  @Autowired
  ActiveIngredientRepository acti;
 
+ @Override
  public ActiveIngredient addIngredient(ActiveIngredient ingredient)
  {
     return acti.save(ingredient);
  }
  @Autowired
  MedicationRepository medi;
- 
+   @Override
  public Medication addMedication(Medication medication)
  {
     return medi.save(medication);
  }
+  @Override
  public List<Medication> getAllMedications(){
     return medi.findAll();
  }
