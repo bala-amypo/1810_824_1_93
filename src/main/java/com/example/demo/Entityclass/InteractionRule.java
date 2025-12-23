@@ -31,15 +31,15 @@ public class InteractionRule{
    {
     return ingredientA;
    }
-   public ActiveIngredient setIngredientA(String ingredientA)
+   public void setIngredientA(ActiveIngredient ingredientA)
    {
     this.ingredientA=ingredientA;
    }
-   public String getIngredientB()
+   public ActiveIngredient getIngredientB()
    {
     return ingredientB;
    }
-   public void setIngredientB(String ingredientB)
+   public void setIngredientB(ActiveIngredient ingredientB)
    {
     this.ingredientB=ingredientB;
    }
@@ -59,7 +59,7 @@ public class InteractionRule{
    {
     this.description=description;
    }
-   public InteractionRule(Long id,String ingredientA,String ingredientB,String severity,String description )
+   public InteractionRule(Long id,ActiveIngredient ingredientA,ActiveIngredient ingredientB,String severity,String description )
    {
     this.id=id;
     this.ingredientA=ingredientA;
