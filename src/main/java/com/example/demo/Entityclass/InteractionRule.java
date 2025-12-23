@@ -6,8 +6,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
+@Table(
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"ingredient_a_id", "ingredient_b_id"})
+    }
+)
 public class InteractionRule {
 
     @Id
@@ -24,8 +31,9 @@ public class InteractionRule {
 
     private String severity;  
     private String description;
-    public InteractionRule() {
-    }
+
+    public InteractionRule() {}
+
     public InteractionRule(Long id,
                            ActiveIngredient ingredientA,
                            ActiveIngredient ingredientB,
@@ -38,7 +46,6 @@ public class InteractionRule {
         this.description = description;
     }
 
-   
     public Long getId() {
         return id;
     }

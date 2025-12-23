@@ -16,8 +16,7 @@ public class ActiveIngredient {
     @Column(unique = true)
     private String name;
 
-    public ActiveIngredient() {
-    }
+    public ActiveIngredient() {}
 
     public ActiveIngredient(Long id, String name) {
         this.id = id;
