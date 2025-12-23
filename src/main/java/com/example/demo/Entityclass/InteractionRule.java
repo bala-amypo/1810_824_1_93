@@ -10,6 +10,7 @@ public class InteractionRule{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @JoinColumn("ingredient_id");
     private String ingredientA;
     private String ingredientB;
     private String severity;
