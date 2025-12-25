@@ -7,12 +7,12 @@ public class RequestResponse {
     private String password;
 
     public RequestResponse() {}
-    public RequestResponse(String name,String email,String password)
-    {
-    this.name=name;
-    this.email=email;
-    this.password=password;
-    }
+    // public RequestResponse(String name,String email,String password)
+    // {
+    // this.name=name;
+    // this.email=email;
+    // this.password=password;
+    // }
 
     public String getName() {
         return name;
