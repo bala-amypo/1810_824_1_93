@@ -1,66 +1,41 @@
 package com.example.demo.util;
 
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-
+import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class JwtUtil {
+    private final String SECRET_KEY = "secret";
 
-    private static final String SECRET_KEY = "secret123";
-
-    // ================= TOKEN GENERATION =================
-    public String generateToken(String email, Long userId, String role) {
-
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("userId", userId);
-        claims.put("role", role);
-
+    public String generateToken(String username, Long userId, String role) {
         return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(email)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
-                .compact();
+            .setSubject(username)
+            .claim("userId", userId)
+            .claim("role", role)
+            .setIssuedAt(new Date())
+            .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+            .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+            .compact();
     }
 
-    // ================= CLAIM EXTRACTION =================
     public String extractUsername(String token) {
-        return extractAllClaims(token).getSubject();
+        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
     }
 
     public Long extractUserId(String token) {
-        return extractAllClaims(token).get("userId", Long.class);
+        return ((Number) Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token)
+                .getBody().get("userId")).longValue();
     }
 
     public String extractRole(String token) {
-        return extractAllClaims(token).get("role", String.class);
+        return (String) Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token)
+                .getBody().get("role");
     }
 
-    // ================= TOKEN VALIDATION =================
     public boolean validateToken(String token, UserDetails userDetails) {
-        final String username = extractUsername(token);
-        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
-    }
-
-    // ================= INTERNAL METHODS =================
-    private Claims extractAllClaims(String token) {
-        return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .parseClaimsJws(token)
-                .getBody();
-    }
-
-    private boolean isTokenExpired(String token) {
-        return extractAllClaims(token)
-                .getExpiration()
-                .before(new Date());
+        return extractUsername(token).equals(userDetails.getUsername());
     }
 }
