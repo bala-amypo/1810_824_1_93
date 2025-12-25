@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
-public class RegisterRequest {
+public class RequestResponse {
 
     private String name;
     private String email;
     private String password;
 
-    public RegisterRequest() {}
+    public RequestResponse() {}
 
     public String getName() {
         return name;
