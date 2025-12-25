@@ -1,6 +1,6 @@
 package com.example.demo.exception;
 
-import com.example.demo.dto.RequestResponse;
+import com.example.demo.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,41 +10,38 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<RequestResponse> handleResourceNotFound(
+    public ResponseEntity<ErrorResponse> handleResourceNotFound(
             ResourceNotFoundException ex) {
 
-        return new ResponseEntity<>(
-                new RequestResponse(
-                        HttpStatus.NOT_FOUND.value(),
-                        ex.getMessage()
-                ),
-                HttpStatus.NOT_FOUND
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.NOT_FOUND.value(),
+                ex.getMessage()
         );
+
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<RequestResponse> handleBadRequest(
+    public ResponseEntity<ErrorResponse> handleBadRequest(
             IllegalArgumentException ex) {
 
-        return new ResponseEntity<>(
-                new RequestResponse(
-                        HttpStatus.BAD_REQUEST.value(),
-                        ex.getMessage()
-                ),
-                HttpStatus.BAD_REQUEST
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                ex.getMessage()
         );
+
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<RequestResponse> handleGeneralException(
+    public ResponseEntity<ErrorResponse> handleGeneralException(
             Exception ex) {
 
-        return new ResponseEntity<>(
-                new RequestResponse(
-                        HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                        "Internal server error"
-                ),
-                HttpStatus.INTERNAL_SERVER_ERROR
+        ErrorResponse error = new ErrorResponse(
+                HttpStatus.INTERNAL_SERVER_ERROR.value(),
+                "Internal server error"
         );
+
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

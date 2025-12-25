@@ -2,32 +2,39 @@ package com.example.demo.dto;
 
 public class RequestResponse {
 
-    private int status;
-    private String message;
+    private String name;
+    private String email;
+    private String password;
 
-    // No-argument constructor
     public RequestResponse() {}
+    // public RequestResponse(String name,String email,String password)
+    // {
+    // this.name=name;
+    // this.email=email;
+    // this.password=password;
+    // }
 
-    // Constructor with status and message
-    public RequestResponse(int status, String message) {
-        this.status = status;
-        this.message = message;
+    public String getName() {
+        return name;
     }
 
-    // Getters and setters
-    public int getStatus() {
-        return status;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public String getEmail() {
+        return email;
     }
 
-    public String getMessage() {
-        return message;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
