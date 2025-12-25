@@ -13,7 +13,7 @@ public class RuleImpl implements RuleService {
     private final InteractionRuleRepository rep;
 
     
-    public RuleImp(InteractionRuleRepository rep) {
+    public RuleImpl(InteractionRuleRepository rep) {
         this.rep = rep;
     }
 

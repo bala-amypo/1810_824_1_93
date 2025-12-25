@@ -15,7 +15,7 @@ public class CatalogImpl implements CatalogService {
     private final ActiveIngredientRepository acti;
     private final MedicationRepository medi;
 
-    public CatalogImp(ActiveIngredientRepository acti,
+    public CatalogImpl(ActiveIngredientRepository acti,
                       MedicationRepository medi) {
         this.acti = acti;
         this.medi = medi;
