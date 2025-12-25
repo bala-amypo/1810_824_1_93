@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.example.demo.service.CatalogService;
-import com.example.demo.Entityclass.ActiveIngredient;
-import com.example.demo.Entityclass.Medication;
+import com.example.demo.model.ActiveIngredient;
+import com.example.demo.model.Medication;
 import java.util.List;
 
 
