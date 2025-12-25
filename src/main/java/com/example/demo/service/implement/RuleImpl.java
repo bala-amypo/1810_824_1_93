@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RuleImp implements RuleService {
+public class RuleImpl implements RuleService {
 
     private final InteractionRuleRepository rep;
 

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 
 @Service
-public class UserImp implements UserService{
+public class UserImpl implements UserService{
 
     @Autowired
     UserRepository user;

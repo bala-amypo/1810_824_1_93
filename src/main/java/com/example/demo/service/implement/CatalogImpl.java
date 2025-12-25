@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CatalogImp implements CatalogService {
+public class CatalogImpl implements CatalogService {
 
     private final ActiveIngredientRepository acti;
     private final MedicationRepository medi;

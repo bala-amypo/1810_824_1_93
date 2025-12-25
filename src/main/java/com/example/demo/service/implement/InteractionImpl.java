@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 @Service
-public class InteractionImp implements InteractionService{
+public class InteractionImpl implements InteractionService{
 
 @Autowired
 InteractionCheckResultRepository rep;
