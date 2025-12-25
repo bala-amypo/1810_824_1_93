@@ -1,6 +1,6 @@
 package com.example.demo.service.implement;
 
-import com.example.demo.Entityclass.InteractionRule;
+import com.example.demo.model.InteractionRule;
 import com.example.demo.repository.InteractionRuleRepository;
 import com.example.demo.service.RuleService;
 

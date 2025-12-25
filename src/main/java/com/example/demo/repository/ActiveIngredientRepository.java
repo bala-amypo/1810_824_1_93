@@ -1,6 +1,6 @@
 package com.example.demo.repository;
 
-import com.example.demo.Entityclass.ActiveIngredient;
+import com.example.demo.model.ActiveIngredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ActiveIngredientRepository

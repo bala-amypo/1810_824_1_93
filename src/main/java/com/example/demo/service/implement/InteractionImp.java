@@ -1,6 +1,6 @@
 package com.example.demo.service.implement;
 
-import com.example.demo.Entityclass.InteractionCheckResult;
+import com.example.demo.model.InteractionCheckResult;
 import com.example.demo.repository.InteractionCheckResultRepository;
 import com.example.demo.service.InteractionService;
 import org.springframework.stereotype.Service;

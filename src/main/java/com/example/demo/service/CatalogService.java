@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.Entityclass.Medication;
-import com.example.demo.Entityclass.ActiveIngredient;
+import com.example.demo.model.Medication;
+import com.example.demo.model.ActiveIngredient;
 import java.util.List;
 
 public interface CatalogService {
