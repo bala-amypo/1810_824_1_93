@@ -15,15 +15,16 @@ import java.util.List;
 public class UserController{
     @Autowired
     UserService crs;
-    @PostMapping("/rules")
-    public User rules(@RequestBody User rule)
-    {
-        return crs.addRule(rule);
-    }
-    @GetMapping("/{email}")
-    public User findemail(@PathVariable String email)
-    {
-        return crs.findByEmail(email);
-    }
+    @PostMapping("/users")
+public User createUser(@RequestBody User user)
+{
+    return crs.addRule(user);
+}
+
+    @GetMapping("/interactions/{id}")
+public InteractionCheckResult getResult(@PathVariable Long id)
+{
+    return inter.getResult(id);
+}
 
 }
