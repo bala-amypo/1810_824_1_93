@@ -3,23 +3,23 @@ package com.example.demo.service.implement;
 import com.example.demo.model.InteractionCheckResult;
 import com.example.demo.repository.InteractionCheckResultRepository;
 import com.example.demo.service.InteractionService;
-import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
-public class InteractionImpl implements InteractionService{
+public class InteractionImpl implements InteractionService {
 
-@Autowired
-InteractionCheckResultRepository rep;
- public InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds)
-{
-    return rep.save(medicationIds);
-}
+    @Autowired
+    private InteractionCheckResultRepository rep;
 
-  public InteractionCheckResult getResult(Long resultId)
-  {
+    @Override
+    public InteractionCheckResult checkInteractions(
+            InteractionCheckResult medicationIds) {
+        return rep.save(medicationIds);
+    }
+
+    @Override
+    public InteractionCheckResult getResult(Long resultId) {
         return rep.findById(resultId).orElse(null);
-  }
-
+    }
 }

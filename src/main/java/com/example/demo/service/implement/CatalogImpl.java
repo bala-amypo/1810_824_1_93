@@ -1,12 +1,11 @@
 package com.example.demo.service.implement;
 
+import com.example.demo.model.ActiveIngredient;
+import com.example.demo.model.Medication;
 import com.example.demo.repository.ActiveIngredientRepository;
 import com.example.demo.repository.MedicationRepository;
-import com.example.demo.model.Medication;
-import com.example.demo.model.ActiveIngredient;
 import com.example.demo.service.CatalogService;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -15,8 +14,9 @@ public class CatalogImpl implements CatalogService {
     private final ActiveIngredientRepository acti;
     private final MedicationRepository medi;
 
-    public CatalogImpl(ActiveIngredientRepository acti,
-                      MedicationRepository medi) {
+    public CatalogImpl(
+            ActiveIngredientRepository acti,
+            MedicationRepository medi) {
         this.acti = acti;
         this.medi = medi;
     }
@@ -37,7 +37,7 @@ public class CatalogImpl implements CatalogService {
         if (medication.getIngredients() == null ||
             medication.getIngredients().isEmpty()) {
             throw new IllegalArgumentException(
-                "Medication must contain at least one ingredient"
+                    "Medication must contain at least one ingredient"
             );
         }
 
