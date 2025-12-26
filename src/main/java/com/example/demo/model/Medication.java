@@ -8,6 +8,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 public class Medication {
@@ -24,15 +25,27 @@ public class Medication {
         joinColumns = @JoinColumn(name = "medication_id"),
         inverseJoinColumns = @JoinColumn(name = "ingredient_id")
     )
-    private Set<ActiveIngredient> ingredients;
+    private Set<ActiveIngredient> ingredients = new HashSet<>();
 
     public Medication() {
+    }
+
+    public Medication(String name) {
+        this.name = name;
     }
 
     public Medication(Long id, String name, Set<ActiveIngredient> ingredients) {
         this.id = id;
         this.name = name;
         this.ingredients = ingredients;
+    }
+
+    public void addIngredient(ActiveIngredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
+
+    public void removeIngredient(ActiveIngredient ingredient) {
+        this.ingredients.remove(ingredient);
     }
 
     public Long getId() {

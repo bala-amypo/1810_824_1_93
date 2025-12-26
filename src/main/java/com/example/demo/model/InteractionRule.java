@@ -4,33 +4,57 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import java.time.LocalDateTime;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-public class InteractionCheckResult {
+@Table(
+    uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"ingredient_a_id", "ingredient_b_id"})
+    }
+)
+public class InteractionRule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String medications;
-    private String interactions;
-    private LocalDateTime checkedAt;
+    @ManyToOne
+    @JoinColumn(name = "ingredient_a_id", nullable = false)
+    private ActiveIngredient ingredientA;
 
-    public InteractionCheckResult() {
+    @ManyToOne
+    @JoinColumn(name = "ingredient_b_id", nullable = false)
+    private ActiveIngredient ingredientB;
+
+    private String severity;
+    private String description;
+
+    public InteractionRule() {
     }
 
-    public InteractionCheckResult(String medications, String interactions) {
-        this.medications = medications;
-        this.interactions = interactions;
-        this.checkedAt = LocalDateTime.now();
+    public InteractionRule(ActiveIngredient ingredientA,
+                           ActiveIngredient ingredientB,
+                           String severity,
+                           String description) {
+        this.ingredientA = ingredientA;
+        this.ingredientB = ingredientB;
+        this.severity = severity;
+        this.description = description;
     }
 
-    public InteractionCheckResult(Long id, String medications, String interactions) {
+    public InteractionRule(Long id,
+                           ActiveIngredient ingredientA,
+                           ActiveIngredient ingredientB,
+                           String severity,
+                           String description) {
         this.id = id;
-        this.medications = medications;
-        this.interactions = interactions;
-        this.checkedAt = LocalDateTime.now();
+        this.ingredientA = ingredientA;
+        this.ingredientB = ingredientB;
+        this.severity = severity;
+        this.description = description;
     }
 
     public Long getId() {
@@ -41,27 +65,35 @@ public class InteractionCheckResult {
         this.id = id;
     }
 
-    public String getMedications() {
-        return medications;
+    public ActiveIngredient getIngredientA() {
+        return ingredientA;
     }
 
-    public void setMedications(String medications) {
-        this.medications = medications;
+    public void setIngredientA(ActiveIngredient ingredientA) {
+        this.ingredientA = ingredientA;
     }
 
-    public String getInteractions() {
-        return interactions;
+    public ActiveIngredient getIngredientB() {
+        return ingredientB;
     }
 
-    public void setInteractions(String interactions) {
-        this.interactions = interactions;
+    public void setIngredientB(ActiveIngredient ingredientB) {
+        this.ingredientB = ingredientB;
     }
 
-    public LocalDateTime getCheckedAt() {
-        return checkedAt;
+    public String getSeverity() {
+        return severity;
     }
 
-    public void setCheckedAt(LocalDateTime checkedAt) {
-        this.checkedAt = checkedAt;
+    public void setSeverity(String severity) {
+        this.severity = severity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
