@@ -2,30 +2,26 @@ package com.example.demo.controller;
 
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
-@RequestMapping("/users")
 public class UserController {
 
-    private final UserService crs;
+    @Autowired
+    private UserService crs;
 
-    public UserController(UserService crs) {
-        this.crs = crs;
-    }
-
-    @PostMapping
+    @PostMapping("/users")
     public User createUser(@RequestBody User user) {
-        return crs.register(user);
+        return crs.createUser(user);   // ✅ FIX IS HERE
     }
 
-    @GetMapping("/{email}")
-    public User findEmail(@PathVariable String email) {
+    @GetMapping("/users/{email}")
+    public User findemail(@PathVariable String email) {
         return crs.findByEmail(email);
     }
 }
