@@ -5,7 +5,7 @@ import com.example.demo.model.ActiveIngredient;
 import java.util.List;
 
 public interface CatalogService {
-       
+
     ActiveIngredient addIngredient(ActiveIngredient ingredient);
 
     Medication addMedication(Medication medication);
