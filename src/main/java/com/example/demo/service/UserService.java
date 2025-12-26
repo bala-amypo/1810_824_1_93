@@ -2,8 +2,9 @@ package com.example.demo.service;
 
 import com.example.demo.model.User;
 
+public interface UserService {
 
-public interface UserService{
-    User addRule(User rule);
+    User createUser(User user);
+
     User findByEmail(String email);
 }
