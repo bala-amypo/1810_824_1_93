@@ -4,7 +4,7 @@ import com.example.demo.model.User;
 
 public interface UserService {
 
-    User createUser(User user);
+    User register(User user);
 
     User findByEmail(String email);
 }

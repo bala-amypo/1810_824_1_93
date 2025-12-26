@@ -1,24 +1,30 @@
-package com.example.demo.service.implement;
+package com.example.demo.service.impl;
 
 import com.example.demo.model.InteractionCheckResult;
 import com.example.demo.repository.InteractionCheckResultRepository;
 import com.example.demo.service.InteractionService;
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 @Service
-public class InteractionImpl implements InteractionService {
+public class InteractionServiceImpl implements InteractionService {
 
-    @Autowired
-    private InteractionCheckResultRepository rep;
+    private final InteractionCheckResultRepository repository;
+
+    public InteractionServiceImpl(InteractionCheckResultRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
-    public InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds) {
-        return rep.save(medicationIds);
+    public InteractionCheckResult checkInteractions(List<Long> medicationIds) {
+        InteractionCheckResult result = new InteractionCheckResult();
+        result.setMedications(medicationIds.toString());
+        result.setInteractions("Sample interactions");
+        return repository.save(result);
     }
 
     @Override
     public InteractionCheckResult getResult(Long resultId) {
-        return rep.findById(resultId).orElse(null);
+        return repository.findById(resultId).orElse(null);
     }
 }
