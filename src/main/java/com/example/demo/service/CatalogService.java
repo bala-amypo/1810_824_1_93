@@ -1,13 +1,11 @@
-package com.example.demo.service;
+package com.example.demo.repository;
 
-import com.example.demo.model.Medication;
-import com.example.demo.model.ActiveIngredient;
-import java.util.List;
+import com.example.demo.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
-public interface CatalogService {
-       
-       ActiveIngredient addIngredient(ActiveIngredient ingredient);
-       Medication addMedication(Medication medication);
-       List<Medication> getAllMedications();
-       
+public interface UserRepository
+        extends JpaRepository<User, Long> {
+
+    Optional<User> findByEmail(String email);
 }
