@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
+import java.util.List;
 
 @RestController
 public class InteractionController {
@@ -15,15 +16,14 @@ public class InteractionController {
     @Autowired
     private InteractionService inter;
 
-    @PostMapping("/hello")
-    public InteractionCheckResult checkInteractions(
-            @RequestBody InteractionCheckResult result) {
-        return inter.checkInteractions(result);
+    @PostMapping("/interactions/check")
+    public InteractionCheckResult checkInteractions(@RequestBody List<Long> medicationIds) {
+        // Now accepts List<Long> instead of InteractionCheckResult
+        return inter.checkInteractions(medicationIds);
     }
 
-    @GetMapping("/result/{id}")
-    public InteractionCheckResult getResult(
-            @PathVariable Long id) {
-        return inter.getResult(id);
+    @GetMapping("/interactions/{resultId}")
+    public InteractionCheckResult getResult(@PathVariable Long resultId) {
+        return inter.getResult(resultId);
     }
 }

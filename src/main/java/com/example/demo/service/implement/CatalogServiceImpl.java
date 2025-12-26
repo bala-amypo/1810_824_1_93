@@ -5,39 +5,47 @@ import com.example.demo.model.Medication;
 import com.example.demo.repository.ActiveIngredientRepository;
 import com.example.demo.repository.MedicationRepository;
 import com.example.demo.service.CatalogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
 public class CatalogServiceImpl implements CatalogService {
 
-    private final ActiveIngredientRepository ingredientRepo;
-    private final MedicationRepository medicationRepo;
+    @Autowired
+    private ActiveIngredientRepository activeIngredientRepository;
 
-    public CatalogServiceImpl(ActiveIngredientRepository ingredientRepo,
-                              MedicationRepository medicationRepo) {
-        this.ingredientRepo = ingredientRepo;
-        this.medicationRepo = medicationRepo;
+    @Autowired
+    private MedicationRepository medicationRepository;
+
+    // No-arg constructor for tests
+    public CatalogServiceImpl() {}
+
+    // Constructor with repositories
+    public CatalogServiceImpl(ActiveIngredientRepository activeIngredientRepository,
+                              MedicationRepository medicationRepository) {
+        this.activeIngredientRepository = activeIngredientRepository;
+        this.medicationRepository = medicationRepository;
     }
 
     @Override
     public ActiveIngredient addIngredient(ActiveIngredient ingredient) {
-        if (ingredientRepo.existsByName(ingredient.getName())) {
+        if (activeIngredientRepository.existsByName(ingredient.getName())) {
             throw new IllegalArgumentException("Ingredient already exists");
         }
-        return ingredientRepo.save(ingredient);
+        return activeIngredientRepository.save(ingredient);
     }
 
     @Override
     public Medication addMedication(Medication medication) {
         if (medication.getIngredients() == null || medication.getIngredients().isEmpty()) {
-            throw new IllegalArgumentException("Medication must have at least one ingredient");
+            throw new IllegalArgumentException("Medication must contain at least one ingredient");
         }
-        return medicationRepo.save(medication);
+        return medicationRepository.save(medication);
     }
 
     @Override
     public List<Medication> getAllMedications() {
-        return medicationRepo.findAll();
+        return medicationRepository.findAll();
     }
 }
