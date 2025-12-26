@@ -17,21 +17,19 @@ public class InteractionCheckResult {
     private String interactions;
     private LocalDateTime checkedAt;
 
+    // Default constructor
     public InteractionCheckResult() {
+        this.checkedAt = LocalDateTime.now();
     }
 
+    // Parameterized constructor
     public InteractionCheckResult(String medications, String interactions) {
         this.medications = medications;
         this.interactions = interactions;
         this.checkedAt = LocalDateTime.now();
     }
 
-    public InteractionCheckResult(Long id, String medications, String interactions) {
-        this.id = id;
-        this.medications = medications;
-        this.interactions = interactions;
-        this.checkedAt = LocalDateTime.now();
-    }
+    // ================= Getters and Setters =================
 
     public Long getId() {
         return id;
