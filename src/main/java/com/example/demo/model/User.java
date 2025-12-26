@@ -14,12 +14,12 @@ public class User {
     private String password;
     private String role;
 
-    // Default constructor
+    
     public User() {
-        this.role = "USER"; // default role to fix testNullValues
+        this.role = "USER"; 
     }
 
-    // Parameterized constructor
+    
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
@@ -27,7 +27,7 @@ public class User {
         this.role = "USER";
     }
 
-    // =================== Getters and Setters ===================
+   
 
     public Long getId() {
         return id;

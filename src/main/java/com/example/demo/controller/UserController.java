@@ -17,7 +17,7 @@ public class UserController {
 
     @PostMapping("/users")
     public User registerUser(@RequestBody User user) {
-        // Call the register method from UserService
+        
         return crs.register(user);
     }
 

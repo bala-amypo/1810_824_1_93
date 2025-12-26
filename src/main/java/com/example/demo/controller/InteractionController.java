@@ -18,7 +18,7 @@ public class InteractionController {
 
     @PostMapping("/interactions/check")
     public InteractionCheckResult checkInteractions(@RequestBody List<Long> medicationIds) {
-        // Now accepts List<Long> instead of InteractionCheckResult
+        
         return inter.checkInteractions(medicationIds);
     }
 
