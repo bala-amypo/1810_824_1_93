@@ -1,30 +1,31 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PathVariable;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
-import java.util.List;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserController{
-    @Autowired
-    UserService crs;
-    @PostMapping("/users")
-public User createUser(@RequestBody User user)
-{
-    return crs.addRule(user);
-}
+@RequestMapping("/users")
+public class UserController {
 
-    @GetMapping("/{email}")
-    public User findemail(@PathVariable String email)
-    {
-        return crs.findByEmail(email);
+    private final UserService crs;
+
+    public UserController(UserService crs) {
+        this.crs = crs;
     }
 
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return crs.register(user);
+    }
+
+    @GetMapping("/{email}")
+    public User findEmail(@PathVariable String email) {
+        return crs.findByEmail(email);
+    }
 }
