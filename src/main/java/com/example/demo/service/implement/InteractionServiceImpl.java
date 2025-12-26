@@ -21,7 +21,7 @@ public class InteractionServiceImpl implements InteractionService {
 
     @Override
     public InteractionCheckResult checkInteractions(List<Long> medicationIds) {
-        // For now, convert List<Long> to InteractionCheckResult
+        
         InteractionCheckResult result = new InteractionCheckResult();
         result.setMedications(medicationIds.toString());
         result.setInteractions(""); // implement real logic if needed

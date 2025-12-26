@@ -13,7 +13,7 @@ public class RuleServiceImpl implements RuleService {
     @Autowired
     private InteractionRuleRepository interactionRuleRepository;
 
-    // No-arg constructor for tests
+    
     public RuleServiceImpl() {}
 
     public RuleServiceImpl(InteractionRuleRepository interactionRuleRepository) {

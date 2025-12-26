@@ -18,10 +18,10 @@ public class CatalogServiceImpl implements CatalogService {
     @Autowired
     private MedicationRepository medicationRepository;
 
-    // No-arg constructor for tests
+    
     public CatalogServiceImpl() {}
 
-    // Constructor with repositories
+    
     public CatalogServiceImpl(ActiveIngredientRepository activeIngredientRepository,
                               MedicationRepository medicationRepository) {
         this.activeIngredientRepository = activeIngredientRepository;
