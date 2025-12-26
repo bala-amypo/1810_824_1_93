@@ -12,16 +12,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    // No-arg constructor for tests
     public UserServiceImpl() {}
 
-    // Constructor with repository for Spring injection
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public User createUser(User user) {
+    public User register(User user) {
         return userRepository.save(user);
     }
 

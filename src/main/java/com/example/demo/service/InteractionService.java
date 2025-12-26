@@ -4,8 +4,6 @@ import com.example.demo.model.InteractionCheckResult;
 import java.util.List;
 
 public interface InteractionService {
-
-    InteractionCheckResult checkInteractions(List<Long> medicationIds);
-
+    InteractionCheckResult checkInteractions(List<Long> medicationIds);  // List<Long> to match test
     InteractionCheckResult getResult(Long resultId);
 }
