@@ -3,8 +3,8 @@ package com.example.demo.service.implement;
 import com.example.demo.model.InteractionCheckResult;
 import com.example.demo.repository.InteractionCheckResultRepository;
 import com.example.demo.service.InteractionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Service
 public class InteractionImpl implements InteractionService {
@@ -13,8 +13,7 @@ public class InteractionImpl implements InteractionService {
     private InteractionCheckResultRepository rep;
 
     @Override
-    public InteractionCheckResult checkInteractions(
-            InteractionCheckResult medicationIds) {
+    public InteractionCheckResult checkInteractions(InteractionCheckResult medicationIds) {
         return rep.save(medicationIds);
     }
 

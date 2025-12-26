@@ -17,25 +17,16 @@ public class RuleImpl implements RuleService {
 
     @Override
     public InteractionRule addRule(InteractionRule rule) {
-
         Long idA = rule.getIngredientA().getId();
         Long idB = rule.getIngredientB().getId();
 
         if (rep.findRuleBetweenIngredients(idA, idB).isPresent()) {
-            throw new IllegalArgumentException(
-                    "Interaction rule already exists for these ingredients"
-            );
+            throw new IllegalArgumentException("Interaction rule already exists for these ingredients");
         }
 
         String severity = rule.getSeverity();
-        if (severity == null ||
-            !(severity.equals("MINOR")
-           || severity.equals("MODERATE")
-           || severity.equals("MAJOR"))) {
-
-            throw new IllegalArgumentException(
-                    "Severity must be MINOR, MODERATE, or MAJOR"
-            );
+        if (!severity.equals("MINOR") && !severity.equals("MODERATE") && !severity.equals("MAJOR")) {
+            throw new IllegalArgumentException("Severity must be MINOR, MODERATE, or MAJOR");
         }
 
         return rep.save(rule);
