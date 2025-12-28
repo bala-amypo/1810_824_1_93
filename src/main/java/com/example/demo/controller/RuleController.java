@@ -20,12 +20,12 @@ public class RuleController {
         this.ruleService = ruleService;
     }
 
-    @PostMapping
+    @PostMapping("/hello")
     public InteractionRule addRule(@RequestBody InteractionRule rule) {
         return ruleService.addRule(rule);
     }
 
-    @GetMapping
+    @GetMapping("/wel")
     public List<InteractionRule> getAllRules() {
         return ruleService.getAllRules();
     }
