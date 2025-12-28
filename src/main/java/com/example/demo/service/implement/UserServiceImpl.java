@@ -37,7 +37,6 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -46,18 +45,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    // ✅ THIS FIXES THE 500 ERROR
+    // ✅ NO ENCRYPTION – SIMPLE SAVE
     @Override
     public User register(User user) {
 
-        // Encode password (VERY IMPORTANT)
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        // Default role if missing
-        if (user.getRole() == null) {
+        // Default role if not provided
+        if (user.getRole() == null || user.getRole().isEmpty()) {
             user.setRole("USER");
         }
 
@@ -70,3 +63,4 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
     }
 }
+
