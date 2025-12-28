@@ -20,10 +20,10 @@ import java.util.List;
 @Configuration
 public class SecurityConfig {
 
-    private final JwtAuthenticationFilter jwtFilter;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtFilter) {
-        this.jwtFilter = jwtFilter;
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
     @Bean
@@ -36,20 +36,27 @@ public class SecurityConfig {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-                // 🔓 Swagger
+
+                // 🔓 Swagger (must be public)
                 .requestMatchers(
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/swagger-ui.html"
                 ).permitAll()
 
-                // 🔓 Auth APIs
-                .requestMatchers("/api/auth/**").permitAll()
+                // 🔓 Public APIs (NO JWT REQUIRED)
+                .requestMatchers(
+                    "/users",          // user registration
+                    "/api/auth/**"     // login / token
+                ).permitAll()
 
-                // 🔐 Everything else needs JWT
+                // 🔐 Everything else requires JWT
                 .anyRequest().authenticated()
             )
-            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+            .addFilterBefore(
+                jwtAuthenticationFilter,
+                UsernamePasswordAuthenticationFilter.class
+            );
 
         return http.build();
     }
@@ -61,18 +68,20 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
+            AuthenticationConfiguration configuration) throws Exception {
+        return configuration.getAuthenticationManager();
     }
 
-    // 🔥 VERY IMPORTANT — CORS FIX
+    // 🔥 REQUIRED FOR SWAGGER + JWT (CORS FIX)
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
         config.setAllowedOrigins(List.of("*"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        config.setAllowedMethods(
+                List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
+        );
 
         UrlBasedCorsConfigurationSource source =
                 new UrlBasedCorsConfigurationSource();
