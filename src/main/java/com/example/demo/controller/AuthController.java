@@ -10,7 +10,7 @@ import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 
 @RestController
-public class UserController {
+public class AController {
 
     @Autowired
     private UserService crs;
