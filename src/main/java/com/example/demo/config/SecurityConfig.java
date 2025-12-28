@@ -36,21 +36,20 @@ public class SecurityConfig {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authorizeHttpRequests(auth -> auth
-
-                // 🔓 Swagger (must be public)
+                // Swagger
                 .requestMatchers(
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/swagger-ui.html"
                 ).permitAll()
 
-                // 🔓 Public APIs (NO JWT REQUIRED)
+                // TEMPORARY – for report screenshots
                 .requestMatchers(
-                    "/users",          // user registration
-                    "/api/auth/**"     // login / token
+                    "/users",
+                    "/users/**",
+                    "/api/auth/**"
                 ).permitAll()
 
-                // 🔐 Everything else requires JWT
                 .anyRequest().authenticated()
             )
             .addFilterBefore(
@@ -68,11 +67,11 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration configuration) throws Exception {
+            AuthenticationConfiguration configuration
+    ) throws Exception {
         return configuration.getAuthenticationManager();
     }
 
-    // 🔥 REQUIRED FOR SWAGGER + JWT (CORS FIX)
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
