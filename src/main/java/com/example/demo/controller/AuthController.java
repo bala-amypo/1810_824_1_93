@@ -27,32 +27,51 @@
 //     }
 // }
 
-package com.example.demo.controller;
+// package com.example.demo.controller;
 
-import com.example.demo.model.User;
-import com.example.demo.service.UserService;
+// import com.example.demo.model.User;
+// import com.example.demo.service.UserService;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.http.ResponseEntity;
+// import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/users")
-public class UserController {
+// @RestController
+// @RequestMapping("/users")
+// public class UserController {
 
-    @Autowired
-    private UserService userService;
+//     @Autowired
+//     private UserService userService;
 
-    // ✅ POST /users → 200 OK
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
-        User savedUser = userService.register(user);
-        return ResponseEntity.ok(savedUser);
+//     // ✅ POST /users → 200 OK
+//     @PostMapping
+//     public ResponseEntity<User> createUser(@RequestBody User user) {
+//         User savedUser = userService.register(user);
+//         return ResponseEntity.ok(savedUser);
+//     }
+
+//     // 🔒 GET /users/{email} (JWT protected)
+//     @GetMapping("/{email}")
+//     public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+//         return ResponseEntity.ok(userService.findByEmail(email));
+//     }
+// }
+
+@PostMapping("/login")
+public AuthResponse login(@RequestBody LoginRequest request) {
+
+    User user = userService.findByEmail(request.getEmail());
+
+    if (!user.getPassword().equals(request.getPassword())) {
+        throw new RuntimeException("Invalid credentials");
     }
 
-    // 🔒 GET /users/{email} (JWT protected)
-    @GetMapping("/{email}")
-    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
-        return ResponseEntity.ok(userService.findByEmail(email));
-    }
+    // ✅ TOKEN GENERATED ONLY HERE
+    String token = jwtUtil.generateToken(
+            user.getEmail(),
+            user.getId(),
+            user.getRole()
+    );
+
+    return new AuthResponse(token);
 }
