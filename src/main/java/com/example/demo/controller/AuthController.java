@@ -66,21 +66,21 @@ public class AuthController {
 
 
 
-@PostMapping("/login")
-public AuthResponse login(@RequestBody LoginRequest request) {
+// @PostMapping("/login")
+// public AuthResponse login(@RequestBody LoginRequest request) {
 
-    User user = userService.findByEmail(request.getEmail());
+//     User user = userService.findByEmail(request.getEmail());
 
-    if (!user.getPassword().equals(request.getPassword())) {
-        throw new RuntimeException("Invalid credentials");
-    }
+//     if (!user.getPassword().equals(request.getPassword())) {
+//         throw new RuntimeException("Invalid credentials");
+//     }
 
-    // ✅ TOKEN GENERATED ONLY HERE
-    String token = jwtUtil.generateToken(
-            user.getEmail(),
-            user.getId(),
-            user.getRole()
-    );
+//     // ✅ TOKEN GENERATED ONLY HERE
+//     String token = jwtUtil.generateToken(
+//             user.getEmail(),
+//             user.getId(),
+//             user.getRole()
+//     );
 
-    return new AuthResponse(token);
-}
+//     return new AuthResponse(token);
+// }
